@@ -1,0 +1,51 @@
+# Introdução {#intro}
+
+## Pré-requisitos
+
+**Programas necessários**  
+
+Para utilizar este livro é fundamental instalar os programas R e R studio.
+Para instalar o R e o R studio, visite os sites citados abaixo, siga as instruções de acordo com o seu sistema operacional (compatível com Windows, MAC e Linux).
+
+- O programa [R](https://www.r-project.org/)  
+
+```{r, out.width="100px", echo=F}
+knitr::include_graphics("img/R.jpeg")
+```
+
+- O programa [R Studio](https://www.rstudio.com/)  
+
+```{r, out.width="200px", echo=F}
+knitr::include_graphics("img/rsutio.jpeg")
+```
+
+\newpage
+
+**Pacotes do R necessários**
+
+- O pacote de R [ggplot2](https://ggplot2.tidyverse.org/)  
+- O pacote de R [dplyr](https://dplyr.tidyverse.org/) 
+  
+Para instalar os pacotes necessários, abra o R studio e digite os comandos abaixo no console:
+
+```{r eval=F}
+install.packages("ggplot2")
+install.packages("dplyr")
+```
+
+**Versões dos programas e pacotes utilizadas no livro**
+
+Para que os exemplos descritos ao longo deste livro, verifique as versões dos programas e pacotes que estão instalados no seu computador.
+
+1. `r version$version.string`  
+2. Versão do R Studio: 1.1.4 (Linux - Ubuntu)
+3. Versão do ggplot2:`r  packageVersion("ggplot2")`  
+4. Versão do dplyr: `r packageVersion("dplyr")`
+
+***
+
+## Como utilizar este livro?
+
+## Ajude a melhorar o livro
+
+
