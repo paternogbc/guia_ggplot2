@@ -1,0 +1,71 @@
+# Histogramas {#hist}
+
+```{r echo=F}
+library(ggplot2)
+```
+
+Neste capítulo você irá aprender a criar [histogramas](https://pt.wikipedia.org/wiki/Histograma) no R utilizando o ggplot2.
+
+## Histograma (simples)
+
+Utilize o banco de dados `iris`, para plotar a distribuição da variável
+Sepal.Length em um gráfico de histograma. A função `geom_hitogram()` plota uma variável contínua no eixo x e a frequência de cada categoria no eixo y. 
+
+```{r message=FALSE, warning=F}
+# Carrgue um banco de dados
+data("iris")
+
+# Histograma de uma variável contínua
+ggplot(iris, aes(x = Sepal.Length)) +
+  geom_histogram()
+```
+
+## Número de classes
+
+Utilize o __argumento__ `bins` para definir em quantas classes a variável __x__ deve ser dividida.
+
+```{r message=FALSE, warning=F, out.width="50%" }
+# Histograma com 10 classes:
+ggplot(iris, aes(x = Sepal.Length)) +
+  geom_histogram(bins = 10) +
+  ggtitle("10 classes")
+
+# Histograma com 30 classes:
+ggplot(iris, aes(x = Sepal.Length)) +
+  geom_histogram(bins = 30) +
+  ggtitle("30 classes")
+
+```
+
+## Múltiplas categorias 
+
+Se você quiser comparar a distribuição de uma variável contínua entre diferentes categorias, você pode utilizar o argumento `fill` para colorir o gráfico. No exemplo abaixo, utilizamos cores diferentes para ilustrar a distribuição da variável x entre espécies diferentes (fill = Species)
+
+```{r message=FALSE, warning=F, out.width="50%"}
+# Histograma com cores para diferentes categorias com sobreposição
+ggplot(iris, aes(x = Sepal.Length, fill = Species)) +
+  geom_histogram() +
+  ggtitle("Com sobreposiçao")
+
+# Histograma com cores para diferentes categorias sem sobreposição
+ggplot(iris, aes(x = Sepal.Length, fill = Species)) +
+  geom_histogram(position = "dodge") +
+  ggtitle("Sem sobreposiçao")
+
+```
+
+## Histograma (bonito)
+
+Todo o final de capítulo temos a demonstração de um gráfico mais elegante. 
+Veja o capítulo XXX para mais detalhes de como manipular cada detalhe do seu gráfico com o ggplot2,
+mas ao observar o script abaixo você pode ir aprendendo com cada exemplo.
+
+```{r message=FALSE, warning=F}
+ggplot(iris, aes(x = Sepal.Length)) +
+  geom_histogram(color = "white", fill = "lightblue") +
+  theme_classic(base_size = 18) +
+  scale_x_continuous(breaks = seq(from = 4,to = 8,by = 1), limits = c(4,8)) +
+  xlab("Comprimento da sépala (mm)") + 
+  ylab("Frequência")
+```
+

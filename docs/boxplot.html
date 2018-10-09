@@ -118,8 +118,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3" data-path="density-plot.html"><a href="density-plot.html"><i class="fa fa-check"></i><b>3</b> Density Plot</a><ul>
 <li class="chapter" data-level="3.1" data-path="density-plot.html"><a href="density-plot.html#density-plot-simples"><i class="fa fa-check"></i><b>3.1</b> Density plot (simples)</a></li>
-<li class="chapter" data-level="3.2" data-path="density-plot.html"><a href="density-plot.html#multiplas-categorias-1"><i class="fa fa-check"></i><b>3.2</b> Múltiplas categorias</a></li>
-<li class="chapter" data-level="3.3" data-path="density-plot.html"><a href="density-plot.html#histograma-bonito-1"><i class="fa fa-check"></i><b>3.3</b> Histograma (bonito)</a></li>
+<li class="chapter" data-level="3.2" data-path="density-plot.html"><a href="density-plot.html#density-plot-colorido"><i class="fa fa-check"></i><b>3.2</b> Density plot (colorido)</a></li>
+<li class="chapter" data-level="3.3" data-path="density-plot.html"><a href="density-plot.html#multiplas-categorias-1"><i class="fa fa-check"></i><b>3.3</b> Múltiplas categorias</a></li>
+<li class="chapter" data-level="3.4" data-path="density-plot.html"><a href="density-plot.html#histograma-bonito-1"><i class="fa fa-check"></i><b>3.4</b> Histograma (bonito)</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="boxplot.html"><a href="boxplot.html"><i class="fa fa-check"></i><b>4</b> Boxplot</a><ul>
 <li class="chapter" data-level="4.1" data-path="boxplot.html"><a href="boxplot.html#boxplot-simples"><i class="fa fa-check"></i><b>4.1</b> Boxplot (simples)</a></li>
@@ -160,18 +161,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co"># Boxplot</span>
 <span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Sepal.Length, <span class="dt">x =</span> Species)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
-<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
 <div id="destque-para-os-outliers" class="section level2">
 <h2><span class="header-section-number">4.2</span> Destque para os outliers</h2>
 <p>Utilize o <strong>argumento</strong> <code>outlier.color</code> para definir a cor dos outliers.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Sepal.Length, <span class="dt">x =</span> Species)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.color =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
-<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Utilize o <strong>argumento</strong> <code>notch = T</code> para produzir diagramas de caixa entalhados (notched). Estes diagramas são úteis para inferir de forma aproximada se exite diferença significativa entre as medias dos grupos.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Sepal.Length, <span class="dt">x =</span> Species)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> T)</code></pre></div>
-<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 </div>
 <div id="colorindo-por-categoria" class="section level2">
 <h2><span class="header-section-number">4.3</span> Colorindo por categoria</h2>
@@ -179,7 +180,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Histograma com cores para diferentes categorias com sobreposição</span>
 <span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Sepal.Length, <span class="dt">x =</span> Species, <span class="dt">fill =</span> Species)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>() </code></pre></div>
-<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
 <div id="histograma-bonito-2" class="section level2">
 <h2><span class="header-section-number">4.4</span> Histograma (bonito)</h2>
@@ -190,7 +191,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">18</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Espécie&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Comprimento da sépala (mm)&quot;</span>)</code></pre></div>
-<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 
 </div>
 </div>
