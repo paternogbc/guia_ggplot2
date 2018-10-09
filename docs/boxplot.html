@@ -155,18 +155,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co"># Boxplot</span>
 <span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Sepal.Length, <span class="dt">x =</span> Species)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
-<p><img src="guia_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
 <div id="destque-para-os-outliers" class="section level2">
 <h2><span class="header-section-number">3.2</span> Destque para os outliers</h2>
 <p>Utilize o <strong>argumento</strong> <code>outlier.color</code> para definir a cor dos outliers.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Sepal.Length, <span class="dt">x =</span> Species)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.color =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
-<p><img src="guia_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>Utilize o <strong>argumento</strong> <code>notch = T</code> para produzir diagramas de caixa entalhados (notched). Estes diagramas são úteis para inferir de forma aproximada se exite diferença significativa entre as medias dos grupos.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Sepal.Length, <span class="dt">x =</span> Species)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> T)</code></pre></div>
-<p><img src="guia_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 </div>
 <div id="colorindo-por-categoria" class="section level2">
 <h2><span class="header-section-number">3.3</span> Colorindo por categoria</h2>
@@ -174,7 +174,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Histograma com cores para diferentes categorias com sobreposição</span>
 <span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Sepal.Length, <span class="dt">x =</span> Species, <span class="dt">fill =</span> Species)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>() </code></pre></div>
-<p><img src="guia_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
 <div id="histograma-bonito-1" class="section level2">
 <h2><span class="header-section-number">3.4</span> Histograma (bonito)</h2>
@@ -185,7 +185,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">18</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Espécie&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Comprimento da sépala (mm)&quot;</span>)</code></pre></div>
-<p><img src="guia_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -228,7 +228,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["guia.pdf", "guia.epub"],
+"download": ["guia_ggplot2.pdf", "guia_ggplot2.epub"],
 "toc": {
 "collapse": "subsection"
 }
