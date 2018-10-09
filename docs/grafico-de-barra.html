@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Guia de Bolso: ggplot2 | Gráficos elegantes no R</title>
+  <meta name="description" content="Uma guia rápido para você aprender a fazer gráficos elegantes no R.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Guia de Bolso: ggplot2 | Gráficos elegantes no R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://paternogbc.github.io/guia_ggplot2/" />
+  <meta property="og:image" content="https://paternogbc.github.io/guia_ggplot2/img/capa_livro2.jpg" />
+  <meta property="og:description" content="Uma guia rápido para você aprender a fazer gráficos elegantes no R." />
+  <meta name="github-repo" content="paternogbc/guia_ggplot2" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Guia de Bolso: ggplot2 | Gráficos elegantes no R" />
+  
+  <meta name="twitter:description" content="Uma guia rápido para você aprender a fazer gráficos elegantes no R." />
+  <meta name="twitter:image" content="https://paternogbc.github.io/guia_ggplot2/img/capa_livro2.jpg" />
+
+<meta name="author" content="Gustavo Paterno">
+
+
+<meta name="date" content="2018-10-09">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="density-plot.html">
+<link rel="next" href="boxplot.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Guia de Bolso: ggplot2</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sobre este livro</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#pre-requisitos"><i class="fa fa-check"></i><b>1.1</b> Pré-requisitos</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#como-utilizar-este-livro"><i class="fa fa-check"></i><b>1.2</b> Como utilizar este livro?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#ajude-a-melhorar-o-livro"><i class="fa fa-check"></i><b>1.3</b> Ajude a melhorar o livro</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="hist.html"><a href="hist.html"><i class="fa fa-check"></i><b>2</b> Histogramas</a><ul>
+<li class="chapter" data-level="2.1" data-path="hist.html"><a href="hist.html#histograma-simples"><i class="fa fa-check"></i><b>2.1</b> Histograma (simples)</a></li>
+<li class="chapter" data-level="2.2" data-path="hist.html"><a href="hist.html#numero-de-classes"><i class="fa fa-check"></i><b>2.2</b> Número de classes</a></li>
+<li class="chapter" data-level="2.3" data-path="hist.html"><a href="hist.html#multiplas-categorias"><i class="fa fa-check"></i><b>2.3</b> Múltiplas categorias</a></li>
+<li class="chapter" data-level="2.4" data-path="hist.html"><a href="hist.html#histograma-bonito"><i class="fa fa-check"></i><b>2.4</b> Histograma (bonito)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="density-plot.html"><a href="density-plot.html"><i class="fa fa-check"></i><b>3</b> Density Plot</a><ul>
+<li class="chapter" data-level="3.1" data-path="density-plot.html"><a href="density-plot.html#density-plot-simples"><i class="fa fa-check"></i><b>3.1</b> Density plot (simples)</a></li>
+<li class="chapter" data-level="3.2" data-path="density-plot.html"><a href="density-plot.html#density-plot-colorido"><i class="fa fa-check"></i><b>3.2</b> Density plot (colorido)</a></li>
+<li class="chapter" data-level="3.3" data-path="density-plot.html"><a href="density-plot.html#multiplas-categorias-1"><i class="fa fa-check"></i><b>3.3</b> Múltiplas categorias</a></li>
+<li class="chapter" data-level="3.4" data-path="density-plot.html"><a href="density-plot.html#density-plot-bonito"><i class="fa fa-check"></i><b>3.4</b> Density plot (bonito)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="grafico-de-barra.html"><a href="grafico-de-barra.html"><i class="fa fa-check"></i><b>4</b> Gráfico de Barra</a><ul>
+<li class="chapter" data-level="4.1" data-path="grafico-de-barra.html"><a href="grafico-de-barra.html#boxplot-simples"><i class="fa fa-check"></i><b>4.1</b> Boxplot (simples)</a></li>
+<li class="chapter" data-level="4.2" data-path="grafico-de-barra.html"><a href="grafico-de-barra.html#destque-para-os-outliers"><i class="fa fa-check"></i><b>4.2</b> Destque para os outliers</a></li>
+<li class="chapter" data-level="4.3" data-path="grafico-de-barra.html"><a href="grafico-de-barra.html#colorindo-por-categoria"><i class="fa fa-check"></i><b>4.3</b> Colorindo por categoria</a></li>
+<li class="chapter" data-level="4.4" data-path="grafico-de-barra.html"><a href="grafico-de-barra.html#histograma-bonito-1"><i class="fa fa-check"></i><b>4.4</b> Histograma (bonito)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="boxplot.html"><a href="boxplot.html"><i class="fa fa-check"></i><b>5</b> Boxplot</a><ul>
+<li class="chapter" data-level="5.1" data-path="boxplot.html"><a href="boxplot.html#boxplot-simples-1"><i class="fa fa-check"></i><b>5.1</b> Boxplot (simples)</a></li>
+<li class="chapter" data-level="5.2" data-path="boxplot.html"><a href="boxplot.html#destque-para-os-outliers-1"><i class="fa fa-check"></i><b>5.2</b> Destque para os outliers</a></li>
+<li class="chapter" data-level="5.3" data-path="boxplot.html"><a href="boxplot.html#colorindo-por-categoria-1"><i class="fa fa-check"></i><b>5.3</b> Colorindo por categoria</a></li>
+<li class="chapter" data-level="5.4" data-path="boxplot.html"><a href="boxplot.html#histograma-bonito-2"><i class="fa fa-check"></i><b>5.4</b> Histograma (bonito)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guia de Bolso: ggplot2 | Gráficos elegantes no R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="grafico-de-barra" class="section level1">
+<h1><span class="header-section-number">4</span> Gráfico de Barra</h1>
+<p>Neste capítulo você irá aprender a criar <a href="https://pt.wikipedia.org/wiki/Gr%C3%A1fico_de_barras">Gráfico de Barra</a> no R utilizando o ggplot2.</p>
+<div id="boxplot-simples" class="section level2">
+<h2><span class="header-section-number">4.1</span> Boxplot (simples)</h2>
+<p>O gráfico de barras utiliza retângulos para repsentar uma variável contínua, sendo que o comprimeno dos retângulos é proporcional ao valor que ele está representando. A função <code>geom_bar()</code> plota uma variável contínua em função de uma variável categórica no eixo x.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Simulando um banco de dados</span>
+df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">dose =</span><span class="kw">c</span>(<span class="st">&quot;Baixa&quot;</span>, <span class="st">&quot;Média&quot;</span>, <span class="st">&quot;Alta&quot;</span>),
+                 <span class="dt">comprimento =</span><span class="kw">c</span>(<span class="fl">4.2</span>, <span class="dv">10</span>, <span class="fl">29.5</span>))
+<span class="kw">head</span>(df)</code></pre></div>
+<pre><code>##    dose comprimento
+## 1 Baixa         4.2
+## 2 Média        10.0
+## 3  Alta        29.5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Boxplot</span>
+<span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">y =</span> comprimento, <span class="dt">x =</span> dose)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="destque-para-os-outliers" class="section level2">
+<h2><span class="header-section-number">4.2</span> Destque para os outliers</h2>
+<p>Utilize o <strong>argumento</strong> <code>outlier.color</code> para definir a cor dos outliers.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Sepal.Length, <span class="dt">x =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.color =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Utilize o <strong>argumento</strong> <code>notch = T</code> para produzir diagramas de caixa entalhados (notched). Estes diagramas são úteis para inferir de forma aproximada se exite diferença significativa entre as medias dos grupos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Sepal.Length, <span class="dt">x =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> T)</code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="colorindo-por-categoria" class="section level2">
+<h2><span class="header-section-number">4.3</span> Colorindo por categoria</h2>
+<p>No exemplo abaixo, utilizamos cores diferentes para ilustrar espécies diferentes através do argumento <code>fill = Species</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Histograma com cores para diferentes categorias com sobreposição</span>
+<span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Sepal.Length, <span class="dt">x =</span> Species, <span class="dt">fill =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>() </code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="histograma-bonito-1" class="section level2">
+<h2><span class="header-section-number">4.4</span> Histograma (bonito)</h2>
+<p>Todo o final de capítulo temos a demonstração de um gráfico mais elegante. Veja o capítulo XXX para mais detalhes de como manipular cada detalhe do seu gráfico com o ggplot2, mas ao observar o script abaixo você pode ir aprendendo com cada exemplo.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Sepal.Length, <span class="dt">x =</span> Species, <span class="dt">fill =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">show.legend =</span> F, <span class="dt">alpha =</span> <span class="fl">.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">8</span>), <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">1</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">18</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Espécie&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Comprimento da sépala (mm)&quot;</span>)</code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="density-plot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="boxplot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["guia_ggplot2.pdf", "guia_ggplot2.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

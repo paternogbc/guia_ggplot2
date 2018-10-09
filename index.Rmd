@@ -1,6 +1,6 @@
 --- 
-title: "Guia de Bolso: ggplot2"
-author: "Gustavo B Paterno"
+title: "Guia de Bolso: ggplot2 | Gráficos elegantes no R"
+author: "Gustavo Paterno"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -18,10 +18,15 @@ knitr::opts_chunk$set(echo = TRUE, results='hold', fig.show='hold')
 library(knitr)
 ```
 
+
 # Sobre este livro {-}
+
+```{r fig.align='left', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), out.width="50%"}
+knitr::include_graphics("img/capa_livro2.jpg", dpi = NA)
+```
 
 Este livro é um guia de bolso para consultar como fazer diferentes tipos de gráficos utilizando o programa estatístico R e o pacote ggplot2. 
 
 # Sobre o autor {-}
 
-Gustavo Brant de Carvalho paterno é doutor em Ecologia pela UFRN, com experiência em Ecologia Vegetal, Ecologia Evolutiva e análises estatísticas no R.
+Gustavo Paterno é doutor em Ecologia pela UFRN, com experiência em Ecologia Vegetal, Ecologia Evolutiva e análises estatísticas no R.
