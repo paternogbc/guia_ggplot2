@@ -1,0 +1,5 @@
+"0","# Carrgue um banco de dados"
+"0","data(""iris"")"
+"0","# Histograma de uma variável contínua"
+"0","ggplot(iris, aes(x = Sepal.Length)) +"
+"0","  geom_histogram()"
