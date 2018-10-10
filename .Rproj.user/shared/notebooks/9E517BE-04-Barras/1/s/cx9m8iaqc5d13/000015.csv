@@ -1,0 +1,4 @@
+"0","#Gráfico de Barras com largura modificada"
+"0","ggplot(df, aes(y = tamanho, x = tratamento)) +"
+"0","  geom_bar(stat = ""identity"", width = 0.25) +"
+"0","  ggtitle(""width = .5"") "

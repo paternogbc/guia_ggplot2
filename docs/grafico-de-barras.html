@@ -104,7 +104,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sobre este livro</a></li>
-<li class="chapter" data-level="" data-path="sobre-o-autor.html"><a href="sobre-o-autor.html"><i class="fa fa-check"></i>Sobre o autor</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#pre-requisitos"><i class="fa fa-check"></i><b>1.1</b> Pré-requisitos</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#como-utilizar-este-livro"><i class="fa fa-check"></i><b>1.2</b> Como utilizar este livro?</a></li>
@@ -172,7 +171,7 @@ df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class=
 <span class="co"># Boxplot</span>
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">y =</span> tamanho, <span class="dt">x =</span> tratamento)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</code></pre></div>
-<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 <div id="ajustes-basicos" class="section level2">
 <h2><span class="header-section-number">4.2</span> Ajustes básicos</h2>
@@ -186,35 +185,37 @@ df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class=
 <h3><span class="header-section-number">4.2.1</span> Cor e preenchimento</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gráfico de Barras com preenchimento colorido</span>
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">y =</span> tamanho, <span class="dt">x =</span> tratamento)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;tomato&quot;</span>)
-<span class="co">#Gráfico de Barras com contorno colorido</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;tomato&quot;</span>)</code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-3-1.png" width="50%" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gráfico de Barras com contorno colorido</span>
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">y =</span> tamanho, <span class="dt">x =</span> tratamento)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>)</code></pre></div>
-<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-17-1.png" width="50%" /><img src="guia_ggplot2_files/figure-html/unnamed-chunk-17-2.png" width="50%" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-3-2.png" width="50%" /></p>
 </div>
 <div id="largura-das-barras" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Largura das barras</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gráfico de Barras com largura modificada</span>
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">y =</span> tamanho, <span class="dt">x =</span> tratamento)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">width =</span> <span class="fl">.75</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;width = .75&quot;</span>)
-<span class="co">#Gráfico de Barras com largura modificada</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;width = .75&quot;</span>)</code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-4-1.png" width="50%" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gráfico de Barras com largura modificada</span>
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">y =</span> tamanho, <span class="dt">x =</span> tratamento)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">width =</span> <span class="fl">0.25</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;width = .25&quot;</span>) </code></pre></div>
-<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-18-1.png" width="50%" /><img src="guia_ggplot2_files/figure-html/unnamed-chunk-18-2.png" width="50%" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-4-2.png" width="50%" /></p>
 </div>
 <div id="orientacao-das-barras" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> Orientação das barras</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gráfico de Barras Vertical</span>
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">y =</span> tamanho, <span class="dt">x =</span> tratamento)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)
-
-<span class="co">#Gráfico de Barras Horizontal</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-5-1.png" width="50%" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gráfico de Barras Horizontal</span>
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">y =</span> tamanho, <span class="dt">x =</span> tratamento)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
-<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-19-1.png" width="50%" /><img src="guia_ggplot2_files/figure-html/unnamed-chunk-19-2.png" width="50%" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-5-2.png" width="50%" /></p>
 </div>
 </div>
 <div id="colorindo-por-categoria" class="section level2">
@@ -223,7 +224,7 @@ df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class=
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gráfico de Barras com preenchimento colorido</span>
 <span class="kw">ggplot</span>(df, <span class="kw">aes</span>(<span class="dt">y =</span> tamanho, <span class="dt">x =</span> tratamento, <span class="dt">fill =</span> tratamento)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</code></pre></div>
-<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 <div id="grafico-de-barras-bonito" class="section level2">
 <h2><span class="header-section-number">4.4</span> Gráfico de barras (bonito)</h2>
@@ -234,8 +235,8 @@ df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class=
 <span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">3.5</span>), <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>,<span class="fl">3.5</span>,.<span class="dv">5</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">18</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Tratamento&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Comprimento da plântula (cm)&quot;</span>)</code></pre></div>
-<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-21-1.png" width="70%" /></p>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Comprimento da plântula (cm)&quot;</span>) <span class="co">#&lt;&lt;</span></code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-7-1.png" width="70%" /></p>
 
 </div>
 </div>

@@ -1,0 +1,7 @@
+"0","#Gráfico de Barras"
+"0","ggplot(df, aes(y = tamanho, x = tratamento)) +"
+"0","  geom_bar(stat = ""identity"", fill = gray(.3)) +"
+"0","  scale_y_continuous(limits = c(0,3.5), breaks = seq(0,3.5,.5)) +"
+"0","  theme_classic(base_size = 18) +"
+"0","  xlab(""Tratamento"") + "
+"0","  ylab(""Comprimento do plântula (cm)"")"
