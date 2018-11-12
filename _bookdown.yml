@@ -1,6 +1,5 @@
 book_filename: "guia_ggplot2"
-delete_merged_file: true
 language:
   ui:
-    chapter_name: ""
+    chapter_name: "Capítulo"
 output_dir: "docs"

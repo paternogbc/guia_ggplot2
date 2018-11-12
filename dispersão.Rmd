@@ -1,0 +1,89 @@
+# Gráfico de dispersão
+
+```{r echo=F}
+library(ggplot2)
+```
+
+Neste capítulo você irá aprender a criar [Gráfico de dispersão](https://pt.wikipedia.org/wiki/Gr%C3%A1fico_de_barras) no R utilizando o ggplot2.
+
+## Gráfico de Barras (simples)
+
+> O gráfico de dispersão ("scatter plot") é um tipo de gráfico que utiliza cordenadas cartesianas para representar a relação entre duas (ou mais) variáveis de um banco de dados. Para plotar esse gráfico você deve utilizar a função 'geom_point()'.
+
+```{r message=FALSE, warning=F}
+# carregando banco de dados
+data("iris")
+
+# Gráfico de dispersão
+ggplot(iris, aes(y = Petal.Length, x = Petal.Width)) +
+  geom_point()
+```
+
+## Ajustes básicos
+
+__Argumentos__   
+
+- **shape** para definir o símbolo dos pontos.  
+- **size** para definir o tamanho dos pontos.  
+- **fill** para definir a cor de preenchimento dos pontos.  
+- **color** para definir a cor da linha de contorno dos pontos.  
+
+### Tipos de símbolos
+
+O tipo de símbolo que será plotado é definido pelo argumento "shape =" dentro da função 'geom_point()'.
+As opções disponíveis são:
+
+```{r out.width ="100%", echo=F}
+knitr::include_graphics("img/shapes.png")
+```
+
+## Símbolo
+
+```{r message=FALSE, warning=F, out.width="50%"}
+#Gráfico de dispersão com shape 1
+ggplot(iris, aes(y = Petal.Length, x = Petal.Width)) +
+  geom_point(shape = 1, size = 3)
+#Gráfico de dispersão com shape 1
+ggplot(iris, aes(y = Petal.Length, x = Petal.Width)) +
+  geom_point(shape = 17, size = 3)
+```
+
+## Tamanho
+
+```{r message=FALSE, warning=F, out.width="50%"}
+#Gráfico de dispersão com shape 1
+ggplot(iris, aes(y = Petal.Length, x = Petal.Width)) +
+  geom_point(size = 1)
+#Gráfico de dispersão com shape 1
+ggplot(iris, aes(y = Petal.Length, x = Petal.Width)) +
+  geom_point(size = 5)
+```
+
+## Cor e preenchimento
+
+```{r message=FALSE, warning=F, out.width="50%"}
+# Alterando cor e preenchimento
+ggplot(iris, aes(y = Petal.Length, x = Petal.Width)) +
+  geom_point(color = "blue", fill = "red", shape = 21)
+# Alterando cor e preenchimento
+ggplot(iris, aes(y = Petal.Length, x = Petal.Width)) +
+  geom_point(color = "red", fill = "black", shape = 21)
+```
+
+## Gráfico de dispersão (bonito)
+
+Todo o final de capítulo temos a demonstração de um gráfico mais elegante. 
+Veja o capítulo XXX para mais detalhes de como manipular cada detalhe do seu gráfico com o ggplot2, mas ao observar o script abaixo você pode ir aprendendo com cada exemplo.
+
+```{r message=FALSE, warning=F, out.width="70%"}
+#Gráfico de Barras
+ggplot(iris, aes(y = Petal.Length, x = Sepal.Length ,
+                 shape = Species, color = Species)) +
+  geom_point(size = 3, alpha = .7) +
+  scale_y_continuous(limits = c(0,7), breaks = seq(0,6,1)) +
+  theme_classic(base_size = 18) +
+  theme(legend.position = "top") +
+  xlab("Largura das Pétalas (mm)") + 
+  ylab("Comprimento das Pétalas (cm)") 
+```
+

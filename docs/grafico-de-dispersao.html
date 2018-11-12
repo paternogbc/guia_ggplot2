@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="intro.html">
+<link rel="prev" href="boxplot.html">
+<link rel="next" href="dot.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -175,18 +175,93 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sobre-o-autor" class="section level1 unnumbered">
-<h1>Sobre o autor</h1>
-<p>Gustavo Paterno é doutor em Ecologia pela UFRN, com experiência em Ecologia Vegetal, Ecologia Evolutiva e análises estatísticas no R.</p>
+<div id="grafico-de-dispersao" class="section level1">
+<h1><span class="header-section-number">Capítulo6</span> Gráfico de dispersão</h1>
+<p>Neste capítulo você irá aprender a criar <a href="https://pt.wikipedia.org/wiki/Gr%C3%A1fico_de_barras">Gráfico de dispersão</a> no R utilizando o ggplot2.</p>
+<div id="grafico-de-barras-simples-1" class="section level2">
+<h2><span class="header-section-number">6.1</span> Gráfico de Barras (simples)</h2>
+<blockquote>
+<p>O gráfico de dispersão (“scatter plot”) é um tipo de gráfico que utiliza cordenadas cartesianas para representar a relação entre duas (ou mais) variáveis de um banco de dados. Para plotar esse gráfico você deve utilizar a função ‘geom_point()’.</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># carregando banco de dados</span>
+<span class="kw">data</span>(<span class="st">&quot;iris&quot;</span>)
 
+<span class="co"># Gráfico de dispersão</span>
+<span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Petal.Length, <span class="dt">x =</span> Petal.Width)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+</div>
+<div id="ajustes-basicos-1" class="section level2">
+<h2><span class="header-section-number">6.2</span> Ajustes básicos</h2>
+<p><strong>Argumentos</strong></p>
+<ul>
+<li><strong>shape</strong> para definir o símbolo dos pontos.<br />
+</li>
+<li><strong>size</strong> para definir o tamanho dos pontos.<br />
+</li>
+<li><strong>fill</strong> para definir a cor de preenchimento dos pontos.<br />
+</li>
+<li><strong>color</strong> para definir a cor da linha de contorno dos pontos.</li>
+</ul>
+<div id="tipos-de-simbolos" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Tipos de símbolos</h3>
+<p>O tipo de símbolo que será plotado é definido pelo argumento “shape =” dentro da função ‘geom_point()’. As opções disponíveis são:</p>
+<p><img src="img/shapes.png" width="100%" /></p>
+</div>
+</div>
+<div id="simbolo" class="section level2">
+<h2><span class="header-section-number">6.3</span> Símbolo</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gráfico de dispersão com shape 1</span>
+<span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Petal.Length, <span class="dt">x =</span> Petal.Width)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">3</span>)
+<span class="co">#Gráfico de dispersão com shape 1</span>
+<span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Petal.Length, <span class="dt">x =</span> Petal.Width)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">17</span>, <span class="dt">size =</span> <span class="dv">3</span>)</code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-31-1.png" width="50%" /><img src="guia_ggplot2_files/figure-html/unnamed-chunk-31-2.png" width="50%" /></p>
+</div>
+<div id="tamanho" class="section level2">
+<h2><span class="header-section-number">6.4</span> Tamanho</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gráfico de dispersão com shape 1</span>
+<span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Petal.Length, <span class="dt">x =</span> Petal.Width)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">1</span>)
+<span class="co">#Gráfico de dispersão com shape 1</span>
+<span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Petal.Length, <span class="dt">x =</span> Petal.Width)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)</code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-32-1.png" width="50%" /><img src="guia_ggplot2_files/figure-html/unnamed-chunk-32-2.png" width="50%" /></p>
+</div>
+<div id="cor-e-preenchimento-1" class="section level2">
+<h2><span class="header-section-number">6.5</span> Cor e preenchimento</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Alterando cor e preenchimento</span>
+<span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Petal.Length, <span class="dt">x =</span> Petal.Width)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">shape =</span> <span class="dv">21</span>)
+<span class="co"># Alterando cor e preenchimento</span>
+<span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Petal.Length, <span class="dt">x =</span> Petal.Width)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">shape =</span> <span class="dv">21</span>)</code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-33-1.png" width="50%" /><img src="guia_ggplot2_files/figure-html/unnamed-chunk-33-2.png" width="50%" /></p>
+</div>
+<div id="grafico-de-dispersao-bonito" class="section level2">
+<h2><span class="header-section-number">6.6</span> Gráfico de dispersão (bonito)</h2>
+<p>Todo o final de capítulo temos a demonstração de um gráfico mais elegante. Veja o capítulo XXX para mais detalhes de como manipular cada detalhe do seu gráfico com o ggplot2, mas ao observar o script abaixo você pode ir aprendendo com cada exemplo.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Gráfico de Barras</span>
+<span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(<span class="dt">y =</span> Petal.Length, <span class="dt">x =</span> Sepal.Length ,
+                 <span class="dt">shape =</span> Species, <span class="dt">color =</span> Species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">alpha =</span> <span class="fl">.7</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">7</span>), <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">6</span>,<span class="dv">1</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_classic</span>(<span class="dt">base_size =</span> <span class="dv">18</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;top&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Largura das Pétalas (mm)&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Comprimento das Pétalas (cm)&quot;</span>) </code></pre></div>
+<p><img src="guia_ggplot2_files/figure-html/unnamed-chunk-34-1.png" width="70%" /></p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="boxplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
